@@ -1,14 +1,16 @@
 const express = require("express")
-const port = 3000
+const port = 3001
 const uuid = require("uuid")
+const cors = require("cors")
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 const orders = []
 
 app.get('/orders', (request, response) => {
-    return response.json({ orders })
+    return response.json(orders)
 })
 
 app.post('/orders', (request, response) => {
